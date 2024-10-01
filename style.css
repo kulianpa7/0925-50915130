@@ -1,0 +1,187 @@
+.container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+.sidebar {
+    left:3px;
+    width: 10%;
+    background-color: #f8f9fa; /* Light background for the sidebar */
+    height: 100vh; /* Full height */
+    position: fixed; /* Fixed position */
+    border-color: #000000;
+    border-radius: 1px;
+    border-left: 3px solid #000000;
+    border-right: 3px solid #000000;
+    background-color: aquamarine;
+}
+.sidebar2 {
+    display: none; /* 預設隱藏 */
+    left: calc(10% + 3px);
+    width: 20%;
+    background-color: aquamarine; /* Light background for the sidebar */
+    height: 100vh; /* Full height */
+    position: fixed; /* Fixed position */
+    border-radius: 5px; /* Slightly larger for visible rounded corners */
+    border-right: 3px solid #000000; /* Black right border */
+}
+
+.imglink {
+    margin-top: 5px;
+    width: 100%;
+    height: 40px; /* 容器的高度 */
+    display: flex; /* 使用 Flexbox */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+.imglink input {
+    width: 95%; /* 讓 input 填滿容器 */
+    height: 40px; /* 調整高度 */
+    padding: 10px; /* 調整內部填充 */
+    font-size: 16px; /* 調整字體大小 */
+    border-radius: 5px; /* 添加圓角 */
+    border: 1px solid #ccc; /* 邊框樣式 */
+    box-sizing: border-box; /* 確保 padding 不會影響寬度 */
+    text-align: center; /* 水平居中輸入的文本 */
+}
+
+.bar {
+    user-select: none;
+    padding: 10px;
+    text-align: center;
+
+    border-bottom:3px solid #00000050; /* Add some border */
+    background-color: aqua;
+    margin: 10px;
+    border-radius: 10px;
+}
+.main {
+    
+    width: 90%;
+    padding: 20px; /* Padding for the main content */
+    height: 90vh; /* Set container height to full viewport height */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Allow horizontal scrolling if necessary */
+    gap: 20px; /* Set the gap between items */
+    
+}
+
+.dlc-ext {
+    width: calc(10% + 10px);
+}
+.pic{
+    user-select: none;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 3px;
+    margin: 0 5px 0 5px;
+}
+.rol-margin{
+    margin: 0 0 5px 0;
+}
+
+/* 卡片容器樣式 */
+.card {
+    aspect-ratio: 1/1; /* 維持方形比例 */
+    margin: 10px; /* 每個卡片的邊距 */
+    box-sizing: border-box; /* 包括內邊距和邊框在寬度計算中 */
+    min-width: 50px; /* 每行最多四個卡片，考慮邊距 */
+    min-height: 50px;
+    max-width: 200px;
+    max-height: 200px;
+    display: flex; /* 使卡片內部元素也使用flexbox */
+    border: 1px solid #000; /* 邊框顏色 */
+    border-radius: 3px; /* 圓角 */
+}
+
+/* 內部內容的樣式 */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.pic img {
+    max-width: 100%;     /* Ensure the image does not exceed the container's width */
+    max-height: 100%;    /* Ensure the image does not exceed the container's height */
+    width: auto;         /* Allow width to adjust based on height */
+    height: auto;        /* Allow height to adjust based on width */
+    object-fit: contain; /* Maintain aspect ratio while fitting the container */
+    border-radius: 3px;  /* Match the border-radius of the container */
+}
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-back {
+    transform: rotateY(180deg); /* Rotate back side */
+}
+
+.flipped .card-inner {
+    transform: rotateY(180deg); /* Rotate card when clicked */
+}
+
+
+
+.row {
+    display: flex; /* Use Flexbox to create a row */
+    margin: 0 -15px; /* Equal negative margin to offset column padding */
+    justify-content: center; /* 水平居中 */
+}
+
+.col {
+    flex: 1; /* Make each column equal width */
+    padding: 15px; /* Add padding to columns for spacing */
+    border: 1px solid #ccc; /* Optional: Add a border for visibility */
+    text-align: center; /* Center text in columns */
+}
+
+.to-middle{
+    width: 100%;
+    justify-content: center; /* 水平居中 */
+    align-items: center;
+    text-align: center; /* Center text in columns */
+}
+.title_tag p{
+    user-select: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    position: relative; /* Position for the pseudo-element */
+    color: white; /* Text color */
+    overflow: hidden; /* Prevents the effect from overflowing */
+}
+
+
+.title_tag p::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 5px solid transparent; /* Border for the RGB effect */
+    background: linear-gradient(45deg, red, green, blue);
+    background-size: 300% 300%; /* Increase background size for animation */
+    z-index: -1; /* Place it behind the text */
+    animation: gradient 3s ease infinite; /* Animation for color rotation */
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
